@@ -1,55 +1,80 @@
-#include <iostream>
-#include <GLFW/glfw3.h>
-int main(){
-    GLFWwindow *window;
+// #include <iostream>
+// #include <GLFW/glfw3.h>
+// int main(){
 
-    int width, height;
+//     std::cout<<"Hello World";
+//     GLFWwindow *window;
 
-    if( !glfwInit() )
-    {
-        fprintf( stderr, "Failed to initialize GLFW\n" );
-        exit( EXIT_FAILURE );
-    }
+//     int width, height;
 
-    glfwWindowHint(GLFW_DEPTH_BITS, 16);
-    glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
+//     if( !glfwInit() )
+//     {
+//         fprintf( stderr, "Failed to initialize GLFW\n" );
+//         exit( EXIT_FAILURE );
+//     }
 
-    window = glfwCreateWindow( 300, 300, "Gears", NULL, NULL );
-    if (!window)
-    {
-        fprintf( stderr, "Failed to open GLFW window\n" );
-        glfwTerminate();
-        exit( EXIT_FAILURE );
-    }
+//     glfwWindowHint(GLFW_DEPTH_BITS, 16);
+//     glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
 
-    // Set callback functions
-    // glfwSetFramebufferSizeCallback(window, reshape);
-    // glfwSetKeyCallback(window, key);
+//     window = glfwCreateWindow( 300, 300, "Gears", NULL, NULL );
+//     if (!window)
+//     {
+//         fprintf( stderr, "Failed to open GLFW window\n" );
+//         glfwTerminate();
+//         exit( EXIT_FAILURE );
+//     }
 
-    // glfwMakeContextCurrent(window);
-    // gladLoadGL(glfwGetProcAddress);
-    // glfwSwapInterval( 1 );
+//     // Set callback functions
+//     // glfwSetFramebufferSizeCallback(window, reshape);
+//     // glfwSetKeyCallback(window, key);
 
-    // glfwGetFramebufferSize(window, &width, &height);
-    // reshape(window, width, height);
+//     // glfwMakeContextCurrent(window);
+//     // gladLoadGL(glfwGetProcAddress);
+//     // glfwSwapInterval( 1 );
 
-    // Parse command-line options
+//     // glfwGetFramebufferSize(window, &width, &height);
+//     // reshape(window, width, height);
 
-    // Main loop
-    while( !glfwWindowShouldClose(window) )
-    {
+//     // Parse command-line options
+
+//     // Main loop
+//     while( !glfwWindowShouldClose(window) )
+//     {
        
 
-        // Swap buffers
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
+//         // Swap buffers
+//         glfwSwapBuffers(window);
+//         glfwPollEvents();
+//     }
 
-    // Terminate GLFW
-    glfwTerminate();
+//     // Terminate GLFW
+//     glfwTerminate();
 
-    // Exit program
-    exit( EXIT_SUCCESS );
+//     // Exit program
+//     exit( EXIT_SUCCESS );
+
+//     // return 0;
 
 
+// }
+
+
+#include <opencv2/opencv.hpp>
+
+int main(int argc, char** argv) {
+  // Read the image file
+  cv::Mat image = cv::imread("image.jpg");
+
+  // Check if the image was successfully read
+  if (image.empty()) {
+    std::cout << "Failed to read the image file" << std::endl;
+    return 1;
+  }
+
+  // Display the image
+  cv::imshow("image", image);
+  cv::waitKey(0);
+  cv::destroyAllWindows();
+
+  return 0;
 }

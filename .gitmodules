@@ -1,3 +1,6 @@
 [submodule "external/glfw"]
 	path = external/glfw
 	url = https://github.com/glfw/glfw
+[submodule "external/opencv"]
+	path = external/opencv
+	url = https://github.com/opencv/opencv

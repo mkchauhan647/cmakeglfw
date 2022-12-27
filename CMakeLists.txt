@@ -1,16 +1,18 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.24)
 
 project(testcmake)
 
 set(Sources main.cpp)
 
-# add_subdirectory(external/glfw)
 
 add_executable(testcmake ${Sources})
 
-# target_include_directories(testcmake PRIVATE glfw/include)
+add_subdirectory(external/glfw)
+add_subdirectory(external/opencv)
 
-# target_link_libraries(testcmake PRIVATE glfw)
+target_include_directories(${PROJECT_NAME} PRIVATE external/glfw/include  external/opencv/include)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE glfw opencv_ml)
 
 
 
